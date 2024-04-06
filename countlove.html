@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imediat :)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sunshiney&family=Waiting+for+the+Sunrise&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @keyframes beat {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #673f69;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        color: #fb6d48;
+      }
+
+      h1 {
+        font-size: 50px;
+        color: #ffaf45;
+        margin: 0 0 20px;
+        text-align: center; /* Centers the text horizontally */
+      }
+      .countdown {
+        font-size: 60px;
+        margin: 0 0 20px;
+      }
+      .heart {
+        width: 100px;
+        height: 90px;
+        position: relative;
+        display: inline-block;
+        animation: beat 1s infinite;
+      }
+      .sunshiney-regular {
+        font-family: "Sunshiney", cursive;
+        font-weight: 400;
+        font-style: normal;
+      }
+      .cute-font-regular {
+        font-family: "Cute Font", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="header" class="sunshiney-regular">TIMP PANA LA IMBRATISARI</h1>
+    <div class="countdown cute-font-regular" id="countdown">00:00</div>
+    <div class="heart">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        id="Layer_1"
+        x="0px"
+        y="0px"
+        viewBox="0 0 122.88 107.41"
+        style="enable-background: new 0 0 122.88 107.41"
+        xml:space="preserve"
+      >
+        <style type="text/css">
+          .st0 {
+            fill-rule: evenodd;
+            clip-rule: evenodd;
+          }
+        </style>
+        <g>
+          <path
+            fill="#d74b76"
+            class="st0"
+            d="M60.83,17.19C68.84,8.84,74.45,1.62,86.79,0.21c23.17-2.66,44.48,21.06,32.78,44.41 c-3.33,6.65-10.11,14.56-17.61,22.32c-8.23,8.52-17.34,16.87-23.72,23.2l-17.4,17.26L46.46,93.56C29.16,76.9,0.95,55.93,0.02,29.95 C-0.63,11.75,13.73,0.09,30.25,0.3C45.01,0.5,51.22,7.84,60.83,17.19L60.83,17.19L60.83,17.19z"
+          />
+        </g>
+      </svg>
+    </div>
+
+    <script>
+      function updateCountdown() {
+        const targetDate = new Date("April 8, 2024 23:30:00").getTime();
+        const now = new Date().getTime();
+        const timeDiff = targetDate - now;
+
+        if (timeDiff <= 0) {
+          document.getElementById("header").innerText = "TE IUBESC";
+          document.getElementById("countdown").innerText = "MEREU";
+          return;
+        } else {
+          console.log(timeDiff / 1000 / 60 / 60);
+          const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+          console.log(hours);
+          const minutes = Math.floor(
+            (timeDiff % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+          document.getElementById("countdown").innerText =
+            hours.toString().padStart(2, "0") +
+            ":" +
+            minutes.toString().padStart(2, "0") +
+            ":" +
+            seconds.toString().padStart(2, "0");
+        }
+        setTimeout(updateCountdown, 1000);
+      }
+      updateCountdown();
+    </script>
+  </body>
+</html>
