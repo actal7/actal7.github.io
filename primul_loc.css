@@ -1,0 +1,139 @@
+body {
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  font-family: "GFS Neohellenic", sans-serif;
+  color: #09527f;
+
+  background: linear-gradient(
+    45deg,
+    #0497f2 25%,
+    #fff 50%,
+    #1e73be 75%,
+    #ffffff 100%
+  );
+  background-size: 400% 400%;
+  animation: GradientShift 30s ease infinite;
+}
+
+.outer_wrapper {
+  width: 90vw;
+  height: 95vh;
+  padding: 16px;
+  margin: 12px;
+
+  display: grid;
+  justify-content: center;
+  align-content: center;
+
+  border: 1px solid #d3dde3;
+  border-radius: 10px;
+}
+
+.inner_wrapper {
+  box-sizing: border-box;
+  width: 85vw;
+  height: 95vh;
+  border: 1px solid #a0d3f3;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+
+  padding: 14px;
+}
+
+.sun_img {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+
+  position: absolute;
+  z-index: 3;
+  animation: rotate 10s linear infinite;
+
+  top: 30%;
+}
+
+.mesaj {
+  font-size: 24px;
+  font-weight: 400;
+  margin-top: 30%;
+  z-index: 4;
+  animation: heartbeat 1s ease infinite;
+}
+
+#countdown {
+  z-index: 4;
+  font-size: 56px;
+}
+
+.emoji {
+  position: absolute;
+  top: -50px;
+  font-size: 2rem; /* Adjust size as needed */
+  opacity: 0.8;
+  z-index: 2;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes GradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+#emoji-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.emoji {
+  position: absolute;
+  top: -5%;
+  font-size: 1rem;
+  animation: fall linear infinite, rotate linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(205vh);
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
